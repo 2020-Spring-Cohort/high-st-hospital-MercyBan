@@ -10,10 +10,7 @@ public class Receptionist extends Employee {
 
     }
 
-    @Override
-    public String getSpecialty() {
-        return null;
-    }
+
 
     public Receptionist(String name) {
         super(name, 45000);

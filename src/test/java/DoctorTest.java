@@ -19,46 +19,16 @@ class DoctorTest {
     }
 
     @Test
-    void getEmployeeNumber() {
-    }
-
-    @Test
-    void getSalary() {
-    }
-
-    @Test
-    void isPaid() {
-    }
-
-    @Test
-    void setEmployeeName() {
-    }
-
-    @Test
-    void setEmployeeNumber() {
-    }
-
-    @Test
-    void setSalary() {
-    }
-
-    @Test
-    void setPaid() {
-    }
-
-    @Test
     void testPaySalaryAlreadyPaid() {
         underTest.paySalary();
-        assertFalse(underTest.isPaid());
-        underTest.paySalary();
-        assertFalse(underTest.isPaid());
+        assertTrue(underTest.isPaid());
     }
 
     @Test
     void testPaySalaryNotPaid() {
         assertFalse(underTest.isPaid());
         underTest.paySalary();
-        assertFalse(underTest.isPaid());
+        assertTrue(underTest.isPaid());
     }
 
     @Test
@@ -93,10 +63,6 @@ class DoctorTest {
         Doctor underTest = new Doctor("TESTNAME", "OBGYN");
         String result = underTest.getSpecialty();
         assertEquals("OBGYN", result);
-
-
-
-
 
     }
 }

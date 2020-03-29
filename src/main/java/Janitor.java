@@ -18,8 +18,4 @@ public class Janitor extends Employee {
 
     }
 
-    @Override
-    public String getSpecialty() {
-        return null;
-    }
 }

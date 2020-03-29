@@ -7,12 +7,7 @@ public class Nurse extends Employee {
 
     @Override
     public void paySalary() {
-
-    }
-
-    @Override
-    public String getSpecialty() {
-        return null;
+        this.paid = true;
     }
 
 

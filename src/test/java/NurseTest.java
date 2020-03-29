@@ -1,7 +1,8 @@
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.BeforeEach;
 
 import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class NurseTest {
 
@@ -13,40 +14,45 @@ class NurseTest {
         underTest = new Nurse("TESTNAME", 0);
 
     }
-
     @Test
-    void getEmployeeName() {
+    void testPaySalaryAlreadyPaid() {
+        underTest.paySalary();
+        assertTrue(underTest.isPaid());
     }
 
     @Test
-    void getEmployeeNumber() {
+    void testPaySalaryNotPaid() {
+        assertFalse(underTest.isPaid());
+        underTest.paySalary();
+        assertTrue(underTest.isPaid());
     }
 
     @Test
-    void getSalary() {
+    void drawBloodLessThan5() {
+        Patient patient = new Patient();
+        patient.setBLOOD_LEVEL(4);
+        underTest.drawBlood(patient);
+        assertEquals(4, patient.getBLOOD_LEVEL());
+        assertEquals(10, patient.getHEALTH_LEVEL());
     }
 
     @Test
-    void isPaid() {
+    void drawBloodEqual5() {
+        Patient patient = new Patient();
+        patient.setBLOOD_LEVEL(5);
+        underTest.drawBlood(patient);
+        assertEquals(5, patient.getBLOOD_LEVEL());
+        assertEquals(10, patient.getHEALTH_LEVEL());
     }
 
     @Test
-    void setEmployeeName() {
+    void drawBloodAbove5() {
+        Patient patient = new Patient();
+        patient.setBLOOD_LEVEL(12);
+        underTest.drawBlood(patient);
+        assertEquals(7, patient.getBLOOD_LEVEL());
+        assertEquals(11, patient.getHEALTH_LEVEL());
+
     }
 
-    @Test
-    void setEmployeeNumber() {
-    }
-
-    @Test
-    void setSalary() {
-    }
-
-    @Test
-    void setPaid() {
-    }
-
-    @Test
-    void paySalary() {
-    }
 }

@@ -9,10 +9,9 @@ public class Doctor extends Employee {
 
     @Override
     public void paySalary() {
-
+        this.paid = true;
     }
 
-    @Override
     public String getSpecialty() {
         return specialty;
     }

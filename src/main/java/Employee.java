@@ -57,5 +57,4 @@ public abstract class Employee {
                 '}';
     }
 
-    public abstract String getSpecialty();
 }
