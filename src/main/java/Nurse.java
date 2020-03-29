@@ -18,12 +18,12 @@ public class Nurse extends Employee {
 
 
     public void drawBlood(Patient patient) {
-        int bloodLevel = patient.getBLOOD_LEVEL();
+        int bloodLevel = patient.getBloodLevel();
         if (bloodLevel <= 5) {
             return;
         } else {
-            patient.setBLOOD_LEVEL(bloodLevel - 5);
-            patient.setHEALTH_LEVEL(patient.getHEALTH_LEVEL() + 1);
+            patient.setBloodLevel(bloodLevel - 5);
+            patient.setHealthLevel(patient.getHealthLevel() + 1);
         }
     }
 }

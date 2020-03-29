@@ -23,12 +23,12 @@ public class Doctor extends Employee {
 
 
     public void drawBlood(Patient patient) {
-        int bloodlevel = patient.getBLOOD_LEVEL();
+        int bloodlevel = patient.getBloodLevel();
         if (bloodlevel <= 10) {
             return;
         } else {
-            patient.setBLOOD_LEVEL(bloodlevel - 10);
-            patient.setHEALTH_LEVEL(patient.getHEALTH_LEVEL() - 5);
+            patient.setBloodLevel(bloodlevel - 10);
+            patient.setHealthLevel(patient.getHealthLevel() - 5);
         }
 
     }

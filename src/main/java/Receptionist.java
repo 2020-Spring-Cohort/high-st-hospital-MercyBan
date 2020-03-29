@@ -7,11 +7,13 @@ public class Receptionist extends Employee {
 
     @Override
     public void paySalary() {
+            if (paid) {
+                return;
+            } else {
+                paid = true;
+            }
 
     }
-
-
-
     public Receptionist(String name) {
         super(name, 45000);
     }
