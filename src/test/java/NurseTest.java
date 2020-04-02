@@ -10,48 +10,48 @@ class NurseTest {
 
 
     @BeforeEach
-    void setUp() {
+    public void setUp() {
         underTest = new Nurse("TESTNAME", 0);
 
     }
     @Test
-    void testPaySalaryAlreadyPaid() {
+    public void testPaySalaryAlreadyPaid() {
         underTest.paySalary();
         assertTrue(underTest.isPaid());
     }
 
     @Test
-    void testPaySalaryNotPaid() {
+    public void testPaySalaryNotPaid() {
         assertFalse(underTest.isPaid());
         underTest.paySalary();
         assertTrue(underTest.isPaid());
     }
 
     @Test
-    void drawBloodLessThan5() {
-        Patient patient = new Patient();
-        patient.setBLOOD_LEVEL(4);
+    public void drawBloodLessThan5() {
+        Patient patient = new Patient("");
+        patient.setBloodLevel(4);
         underTest.drawBlood(patient);
-        assertEquals(4, patient.getBLOOD_LEVEL());
-        assertEquals(10, patient.getHEALTH_LEVEL());
+        assertEquals(4, patient.getBloodLevel());
+        assertEquals(10, patient.getHealthLevel());
     }
 
     @Test
-    void drawBloodEqual5() {
-        Patient patient = new Patient();
-        patient.setBLOOD_LEVEL(5);
+    public void drawBloodEqual5() {
+        Patient patient = new Patient("");
+        patient.setBloodLevel(5);
         underTest.drawBlood(patient);
-        assertEquals(5, patient.getBLOOD_LEVEL());
-        assertEquals(10, patient.getHEALTH_LEVEL());
+        assertEquals(5, patient.getBloodLevel());
+        assertEquals(10, patient.getHealthLevel());
     }
 
     @Test
-    void drawBloodAbove5() {
-        Patient patient = new Patient();
-        patient.setBLOOD_LEVEL(12);
+    public void drawBloodAbove5() {
+        Patient patient = new Patient("");
+        patient.setBloodLevel(12);
         underTest.drawBlood(patient);
-        assertEquals(7, patient.getBLOOD_LEVEL());
-        assertEquals(11, patient.getHEALTH_LEVEL());
+        assertEquals(7, patient.getBloodLevel());
+        assertEquals(11, patient.getHealthLevel());
 
     }
 

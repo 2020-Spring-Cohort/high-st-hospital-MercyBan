@@ -10,6 +10,7 @@ public class HospitalApplication {
     static Employee[] employeesList = new Employee[6];
     static Patient patient1 = new Patient("Rob");
     static Patient patient2 = new Patient("Janet");
+    static Employee[] doctorNurseList = new Employee [4];
 
 
     private static String answer = "";
@@ -26,16 +27,20 @@ public class HospitalApplication {
         employeesList[3] = recep;
         employeesList[4] = janitor;
 
+        doctorNurseList[0] = doc1;
+        doctorNurseList[1] = doc2;
+        doctorNurseList[2] = nurse;
 
-        System.out.println("What is your name");
-        nurse2 = new Nurse(scn.nextLine());
-        employeesList[5] = nurse2;
+        System.out.println("Welcome to High Street Hospital, where we treat all patients equally");
 
 
 
-        printEmployeeRoster(employeesList);
         payEmployees(employeesList);
         story();
+
+        System.out.println("Thank You For Making Us Your Healthcare Provider!");
+
+
 
 
     }
@@ -48,7 +53,11 @@ public class HospitalApplication {
 
     public static void payEmployees(Employee[] employees) {
         for (Employee employee : employees){
-            employee.paySalary();
+            if (employee != null){
+                employee.paySalary();
+
+
+            }
         }
     }
 
@@ -61,7 +70,7 @@ public class HospitalApplication {
 
     public static void story(){
         System.out.println("What would you like to do ?");
-        System.out.println("Option 1 : Add new employee");
+        System.out.println("Option 1 : Add New Nurse");
         System.out.println("Option 2: Treat Pateints");
         System.out.println("Option 3: Check Phones");
         System.out.println("Option 4: Check cleaning Supplies");
@@ -71,8 +80,54 @@ public class HospitalApplication {
 
         switch (option) {
             case 1:
+                System.out.println("What is Nurse's name ? ");
+                nurse2 = new Nurse(scn.nextLine());
+                employeesList[5] = nurse2;
+                doctorNurseList[3] = nurse2;
+
+                printEmployeeRoster(employeesList);
                 break;
             case 2:
+                System.out.println("Who wants to treat Rob?");
+                System.out.println("Dr. Will or Dr. Tom?");
+                answer = scn.nextLine();
+                if (answer.equalsIgnoreCase("Dr. Will")){
+                    doc1.drawBlood(patient1);
+                }
+                else {
+                    System.out.println("Rob doesn't need an OBGYN Doctor");
+                }
+
+                System.out.println("Who wants to treat Janet?");
+                for (Employee employee : doctorNurseList){
+                    if (employee !=null){
+                        if (employee instanceof Doctor){
+                            System.out.println("Dr. " + employee.getEmployeeName());
+                        }
+                        else {
+                            System.out.println(employee.getEmployeeName());
+
+                        }
+
+                    }
+                }
+                answer = scn.nextLine();
+                if (answer.equalsIgnoreCase("Dr. Will")){
+                    System.out.println("She doesnt need throat Doctor");
+                }
+                else if (answer.equalsIgnoreCase("Dr. Tom")){
+                    doc2.drawBlood(patient2);
+                }
+                else if (answer.equalsIgnoreCase("Betty")){
+                    nurse.drawBlood(patient2);
+
+                }
+                else {
+                    System.out.println("In training and need another nurse to attend");
+
+                }
+                printPatientStatus();
+
                 break;
             case 3:
                 System.out.println("Answer the phone? Yes or No");
@@ -86,7 +141,7 @@ public class HospitalApplication {
                 else {
                     System.out.println("The manager caught you slacking...Get back to Work!!! ");
                 }
-        System.exit(0);
+
                 break;
             case 4:
                 System.out.println("Are the supplies well stocked? Yes or No");
@@ -100,7 +155,7 @@ public class HospitalApplication {
                 else {
                     System.out.println("Order Supplies ");
                 }
-                System.exit(0);
+
                 break;
             default:
                 break;

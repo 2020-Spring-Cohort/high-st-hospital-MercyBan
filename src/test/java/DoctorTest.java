@@ -8,58 +8,58 @@ class DoctorTest {
     private Doctor underTest;
 
     @BeforeEach
-    void setUp() {
+    public void setUp() {
         underTest = new Doctor("TESTNAME", "OBGYN");
     }
 
     @Test
-    void testGetEmployeeName() {
+    public void testGetEmployeeName() {
         String actual = underTest.getEmployeeName();
         assertEquals("TESTNAME", actual);
     }
 
     @Test
-    void testPaySalaryAlreadyPaid() {
+    public void testPaySalaryAlreadyPaid() {
         underTest.paySalary();
         assertTrue(underTest.isPaid());
     }
 
     @Test
-    void testPaySalaryNotPaid() {
+    public void testPaySalaryNotPaid() {
         assertFalse(underTest.isPaid());
         underTest.paySalary();
         assertTrue(underTest.isPaid());
     }
 
     @Test
-    void drawBloodLessThan10() {
-        Patient patient = new Patient();
-        patient.setBLOOD_LEVEL(7);
+    public void drawBloodLessThan10() {
+        Patient patient = new Patient("");
+        patient.setBloodLevel(7);
         underTest.drawBlood(patient);
-        assertEquals(7, patient.getBLOOD_LEVEL());
-        assertEquals(10, patient.getHEALTH_LEVEL());
+        assertEquals(7, patient.getBloodLevel());
+        assertEquals(10, patient.getHealthLevel());
     }
 
     @Test
-    void drawBloodEqual10() {
-        Patient patient = new Patient();
-        patient.setBLOOD_LEVEL(10);
+    public void drawBloodEqual10() {
+        Patient patient = new Patient("");
+        patient.setBloodLevel(10);
         underTest.drawBlood(patient);
-        assertEquals(10, patient.getBLOOD_LEVEL());
-        assertEquals(10, patient.getHEALTH_LEVEL());
+        assertEquals(10, patient.getBloodLevel());
+        assertEquals(10, patient.getHealthLevel());
     }
 
     @Test
-    void drawBloodAbove10() {
-        Patient patient = new Patient();
-        patient.setBLOOD_LEVEL(12);
+    public void drawBloodAbove10() {
+        Patient patient = new Patient("");
+        patient.setBloodLevel(12);
         underTest.drawBlood(patient);
-        assertEquals(2, patient.getBLOOD_LEVEL());
-        assertEquals(5, patient.getHEALTH_LEVEL());
+        assertEquals(2, patient.getBloodLevel());
+        assertEquals(5, patient.getHealthLevel());
 
     }
     @Test
-    void doctorShouldHaveSpecialty() {
+    public void doctorShouldHaveSpecialty() {
         Doctor underTest = new Doctor("TESTNAME", "OBGYN");
         String result = underTest.getSpecialty();
         assertEquals("OBGYN", result);

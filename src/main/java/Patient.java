@@ -4,6 +4,7 @@ public class Patient  {
      public int HEALTH_LEVEL = 10;
 
     public Patient(String name) {
+
         this.name = name;
     }
 
